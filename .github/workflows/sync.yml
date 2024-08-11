@@ -24,7 +24,7 @@ jobs:
         cd temp-repo
         git remote add target https://github.com/amclubs/am-cf-linklet.git
         git fetch target
-        git push target master --force
+        git push target main --force
 
     - name: Clean up
       run: rm -rf temp-repo
