@@ -1,0 +1,29 @@
+name: Sync Repository
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天午夜执行
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        repository: ansoncloud8/am-cf-linklet
+        token: ${{ secrets.GITHUB_TOKEN }}
+        path: temp-repo
+
+    - name: Sync repository
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        cd temp-repo
+        git remote add target https://github.com/amclubs/am-cf-linklet.git
+        git fetch target
+        git push target master --force
+
+    - name: Clean up
+      run: rm -rf temp-repo
