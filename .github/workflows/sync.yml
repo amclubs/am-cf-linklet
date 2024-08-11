@@ -1,37 +1,25 @@
-name: Sync Fork
+name: Sync Repo Code
  
 on:
-  schedule:
-    # 每天同步一次，你可以根据需要调整cron表达式
-    - cron: '0 0 * * *'
-  workflow_dispatch:  # 允许手动触发  
+  webhook:
  
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: main
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+      with:
+        ref: 'your-branch-name'
  
-      - name: Setup git user
-        run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
-      - name: Fetch upstream
-        run: |
-          # 替换下面的URL为你想要同步的仓库的URL
-          git remote add upstream https://github.com/amclubs/am-cf-linklet.git
-          git fetch upstream
-      - name: Rebase
-        run: |
-          git rebase upstream/master
-      - name: Push to main
-        uses: easingthemes/action-git-push@v1.3.0
-        with:
-          branch: main
-          force: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+    - name: Setup Git
+      run: |
+        git config --global user.name 'Your Name'
+        git config --global user.email 'your.email@example.com'
+    - name: Sync Code
+      uses: easingthemes/action-git-sync@master
+      with:
+        source_repo: 'git@github.com:ansoncloud8/am-cf-linklet.git'
+        source_branch: 'main'
+        target_branch: 'main'
+        github_token: ${{ secrets.GITHUB_TOKEN }}
