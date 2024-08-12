@@ -1,25 +1,21 @@
-name: Sync Repo Code
+name: Sync Fork
  
 on:
-  webhook:
+  push:
+    branches: [ main ]
  
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-      with:
-        ref: 'your-branch-name'
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          ref: main
  
-    - name: Setup Git
-      run: |
-        git config --global user.name 'Your Name'
-        git config --global user.email 'your.email@example.com'
-    - name: Sync Code
-      uses: easingthemes/action-git-sync@master
-      with:
-        source_repo: 'git@github.com:ansoncloud8/am-cf-linklet.git'
-        source_branch: 'main'
-        target_branch: 'main'
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Sync with Upstream
+        uses: cpina/github-actions-sync-fork@master
+        with:
+          UPSTREAM_USER: 'ansoncloud8'
+          UPSTREAM_REPO: 'am-cf-linklet'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
