@@ -1,4 +1,4 @@
-# [am-cf-linklet](https://github.com/amclubs/am-cf-linklet)
+# [am-cf-linklet](https://github.com/ansoncloud8/am-cf-linklet)
 
 #
 ▶️ **新人[YouTube](https://youtube.com/@am_clubs?sub_confirmation=1)** 需要您的支持，请务必帮我**点赞**、**关注**、**打开小铃铛**，***十分感谢！！！*** ✅
@@ -14,7 +14,7 @@
 
 ### 1.利用 Cloudflare Pages 部署
 
-1. Fork [linklet 仓库](https://github.com/amclubs/am-cf-linklet.git)。
+1. Fork [linklet 仓库](https://github.com/ansoncloud8/am-cf-linklet.git)。
 2. 登录到 [Cloudflare](https://dash.cloudflare.com) 控制台。
 3. 在 Cloudflare 控制台，选择 <kbd>Workers & Pages</kbd> > <kbd>Create application</kbd> > <kbd>Pages</kbd> > <kbd>Connect to Git</kbd>。
 4. 选择 Fork 的仓库，若没有该仓库，请点击 [Cloudflare Pages 链接](https://github.com/settings/installations/46795069)配置 Cloudflare 访问个人的 GitHub 仓库权限。
@@ -107,3 +107,7 @@ Content-Type: application/json
  - 2、使用本程序必循遵守部署服务器所在地区的法律、所在国家和用户所在国家的法律法规。对任何人或团体使用该项目时产生的任何后果由使用者承担。
  - 3、作者不对使用该项目可能引起的任何直接或间接损害负责。作者保留随时更新免责声明的权利，且不另行通知。
  
+
+
+
+
